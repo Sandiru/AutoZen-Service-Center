@@ -20,7 +20,7 @@ See more on screenshot directry.
     *   Admin: Manages vehicle data, service fees, cashiers, holidays, and appointments.
     *   Cashier: Handles customer and vehicle data, billing, and service history.
     *   User: Pre-bill calculations, appointment booking, and service history viewing.
-    *   JWT-based authentication for secure access.
+    
 *   **Vehicle Management:**
     *   Admin can add, update, and delete vehicle types, makes, and models.
     *   Searchable vehicle catalog.
