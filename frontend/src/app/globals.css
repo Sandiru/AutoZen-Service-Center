@@ -1,0 +1,207 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Theme colors - Light Mode */
+    --background: 210 40% 98%; /* Very light blue-gray */
+    --foreground: 215 28% 17%; /* Dark blue-gray */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 215 28% 17%; /* Dark blue-gray */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 215 28% 17%; /* Dark blue-gray */
+
+    --primary: 217 91% 60%; /* Bright Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 210 40% 96%; /* Lighter blue-gray */
+    --secondary-foreground: 215 28% 17%; /* Dark blue-gray */
+
+    --muted: 210 40% 90%; /* Medium light blue-gray */
+    --muted-foreground: 215 20% 65%; /* Medium gray */
+
+    --accent: 173 58% 59%; /* Teal */
+    --accent-foreground: 215 28% 17%; /* Dark blue-gray (Changed for contrast on teal) */
+
+    --destructive: 0 84% 60%; /* Default Red */
+    --destructive-foreground: 0 0% 100%; /* Default White */
+
+    --border: 210 40% 88%; /* Slightly darker light blue-gray */
+    --input: 0 0% 100%; /* White */
+    --input-border: 210 40% 88%; /* Slightly darker light blue-gray */
+    --ring: 217 91% 65%; /* Slightly lighter blue for focus rings */
+
+    --chart-1: 217 91% 60%; /* Bright Blue */
+    --chart-2: 173 58% 59%; /* Teal */
+    --chart-3: 215 20% 65%; /* Medium gray */
+    --chart-4: 210 40% 96%; /* Lighter blue-gray */
+    --chart-5: 215 28% 17%; /* Dark blue-gray */
+
+    --radius: 0.5rem;
+
+    /* Sidebar - Dark blue for contrast */
+    --sidebar-background: 215 28% 17%; /* Dark blue-gray */
+    --sidebar-foreground: 0 0% 100%; /* White */
+    --sidebar-primary: 217 91% 65%; /* Lighter Blue */
+    --sidebar-primary-foreground: 215 28% 17%; /* Dark blue-gray */
+    --sidebar-accent: 173 58% 59%; /* Teal */
+    --sidebar-accent-foreground: 215 28% 17%; /* Dark blue-gray */
+    --sidebar-border: 210 40% 88%; /* Light blue-gray */
+    --sidebar-ring: 217 91% 65%; /* Lighter Blue */
+  }
+
+  .dark {
+    /* Dark mode theme colors */
+    --background: 215 28% 13%; /* Very Dark Blue-Gray */
+    --foreground: 0 0% 100%; /* White */
+
+    --card: 215 28% 19%; /* Slightly Lighter Dark Blue-Gray */
+    --card-foreground: 0 0% 100%; /* White */
+
+    --popover: 215 28% 19%; /* Slightly Lighter Dark Blue-Gray */
+    --popover-foreground: 0 0% 100%; /* White */
+
+    --primary: 217 91% 65%; /* Lighter Blue (Primary becomes light) */
+    --primary-foreground: 215 28% 17%; /* Dark Blue-Gray */
+
+    --secondary: 215 20% 25%; /* Dark Gray */
+    --secondary-foreground: 0 0% 100%; /* White */
+
+    --muted: 215 20% 30%; /* Slightly Lighter Dark Gray */
+    --muted-foreground: 215 20% 70%; /* Light Gray */
+
+    --accent: 173 58% 65%; /* Lighter Teal */
+    --accent-foreground: 215 28% 17%; /* Dark blue-gray */
+
+    --destructive: 0 72% 51%; /* Darker Red */
+    --destructive-foreground: 0 0% 100%; /* Default White */
+
+    --border: 215 20% 35%; /* Medium Dark Gray */
+    --input: 215 28% 19%; /* Slightly Lighter Dark Blue-Gray */
+    --input-border: 215 20% 35%; /* Medium Dark Gray */
+    --ring: 217 91% 65%; /* Lighter Blue */
+
+    --chart-1: 217 91% 65%; /* Lighter Blue */
+    --chart-2: 173 58% 65%; /* Lighter Teal */
+    --chart-3: 215 20% 70%; /* Light Gray */
+    --chart-4: 215 20% 30%; /* Slightly Lighter Dark Gray */
+    --chart-5: 0 0% 100%; /* White */
+
+    /* Sidebar - Keeping it dark */
+    --sidebar-background: 215 28% 17%; /* Dark blue-gray */
+    --sidebar-foreground: 0 0% 100%; /* White */
+    --sidebar-primary: 217 91% 65%; /* Lighter Blue */
+    --sidebar-primary-foreground: 215 28% 17%; /* Dark blue-gray */
+    --sidebar-accent: 173 58% 65%; /* Lighter Teal */
+    --sidebar-accent-foreground: 215 28% 17%; /* Dark blue-gray */
+    --sidebar-border: 215 20% 35%; /* Medium Dark Gray */
+    --sidebar-ring: 217 91% 65%; /* Lighter Blue */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scroll caused by animation */
+    overflow-y: auto; /* Allow vertical scroll */
+  }
+  main {
+    flex-grow: 1;
+  }
+}
+
+/* Apply input border color */
+@layer components {
+  .border-input {
+      border-color: hsl(var(--input-border));
+  }
+}
+
+/* Rainbow Background Effect */
+@keyframes slide {
+  from {
+    right: 0vw;
+  }
+  to {
+    right: 125vw;
+  }
+}
+
+.rainbow {
+  height: 100vh;
+  width: 0;
+  top: 0;
+  position: absolute;
+  transform: rotate(10deg);
+  transform-origin: top right;
+  z-index: -1; /* Ensure it's behind content */
+  /* Base shadow using theme colors */
+   box-shadow:
+    -130px 0 80px 40px hsl(var(--background)),
+    -50px 0 50px 25px hsl(var(--primary)),
+    0 0 50px 25px hsl(var(--accent)),
+    50px 0 50px 25px hsl(var(--secondary)),
+    130px 0 80px 40px hsl(var(--background));
+
+  /* Animation - applied to base */
+  animation: slide 45s linear infinite;
+}
+
+/* Specific rainbow elements with varying animation delays and color orders */
+.rainbow-1 { animation-delay: -0s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-2 { animation-delay: -1.8s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-3 { animation-delay: -3.6s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-4 { animation-delay: -5.4s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-5 { animation-delay: -7.2s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-6 { animation-delay: -9s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-7 { animation-delay: -10.8s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-8 { animation-delay: -12.6s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-9 { animation-delay: -14.4s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-10 { animation-delay: -16.2s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-11 { animation-delay: -18s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-12 { animation-delay: -19.8s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-13 { animation-delay: -21.6s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-14 { animation-delay: -23.4s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-15 { animation-delay: -25.2s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-16 { animation-delay: -27s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-17 { animation-delay: -28.8s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-18 { animation-delay: -30.6s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-19 { animation-delay: -32.4s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-20 { animation-delay: -34.2s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-21 { animation-delay: -36s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-22 { animation-delay: -37.8s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--secondary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--primary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-23 { animation-delay: -39.6s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--accent)), 0 0 50px 25px hsl(var(--primary)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-24 { animation-delay: -41.4s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--secondary)), 50px 0 50px 25px hsl(var(--accent)), 130px 0 80px 40px hsl(var(--background)); }
+.rainbow-25 { animation-delay: -43.2s; box-shadow: -130px 0 80px 40px hsl(var(--background)), -50px 0 50px 25px hsl(var(--primary)), 0 0 50px 25px hsl(var(--accent)), 50px 0 50px 25px hsl(var(--secondary)), 130px 0 80px 40px hsl(var(--background)); }
+
+
+/* Fading edges - Using background color */
+.h-fade {
+  box-shadow: 0 0 50vh 40vh hsl(var(--background)); /* Use background color */
+  width: 100vw;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+.v-fade {
+  box-shadow: 0 0 35vw 25vw hsl(var(--background)); /* Use background color */
+  width: 0;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+   z-index: -1;
+}
