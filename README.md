@@ -5,7 +5,7 @@
 
 AutoZen Services is a comprehensive full-stack web application designed to manage various aspects of an automobile service center. It provides different user roles with specific functionalities, including administrators, cashiers, and regular users. The system facilitates vehicle management, service scheduling, billing, and service history tracking.
 
-![ADMIN DASHBOARD](./screenshots/AdminHome.png")
+![ADMIN DASHBOARD](../screenshots/AdminHome.png")
 
 ## Technologies Used
 
