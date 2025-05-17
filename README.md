@@ -12,7 +12,7 @@ See more on screenshot directry.
 
 *   **Frontend:** Next.js, TypeScript, Tailwind CSS, Radix UI, Framer Motion
 *   **Backend:** Spring Boot, Java, MySQL
-*   **AI Features: Genkit, Google Gemini AI
+*   **AI Features:** Genkit, Google Gemini AI
 
 ## Key Features
 
